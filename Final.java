@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Final extends JFrame{
+public class Final extends JFrame {
 	private Timer timer = new Timer(1000, new TimerListener());
 	private Line line = new Line();
 	private Car1 car1 = new Car1(); 
@@ -61,6 +61,53 @@ public class Final extends JFrame{
 		car3.setBounds(x3, y3, 100, 60);
 		line.add(car3);
 		add(line);
+		
+		jbtStart.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				
+				int speed1 = Integer.parseInt(jtfCar1.getText());
+				int speed2 = Integer.parseInt(jtfCar2.getText());
+				int speed3 = Integer.parseInt(jtfCar3.getText());
+				timer.start();
+			}
+		});
+		
+		jbtStop.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				timer.stop();
+			}
+		});
+		
+	}
+	
+	public class TimerListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e){
+			try{
+				x1 = x1 + 10;
+				if(x1 > 800){
+					x1 = -100;
+				}
+				car1.setBounds(x1, y1, 100, 60);
+				
+				x2 = x2 + 10;
+				if(x2 > 800){
+					x2 = -100;
+				}
+				car2.setBounds(x2, y2, 100, 60);
+				
+				x3 = x3 + 10;
+				if(x3 > 800){
+					x3 = -100;
+				}
+				car3.setBounds(x3, y3, 100, 60);
+			}
+			catch(RuntimeException q){
+				JOptionPane.showMessageDialog(null,"錯誤 !!","WARNING",JOptionPane.WARNING_MESSAGE);
+			}
+		}
 	}
 	
 	public class Line extends JPanel{
