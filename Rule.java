@@ -8,6 +8,7 @@ public class Rule extends JFrame{
 	public Rule(){
 		setLayout(null);
 		
+		//說明遊戲規則
 		JTextArea jtaRule = new JTextArea(" 記憶配對遊戲(對對碰) : \n\n"
 								  +	"               共有6對12張神奇寶貝球牌, \n"
 								  + "               請在最短時間及最少次數內, \n"
@@ -17,9 +18,11 @@ public class Rule extends JFrame{
 		jtaRule.setBounds(70, 30, 350, 130);
 		add(jtaRule);
 		
+		//確定按鈕
 		jbtSure.setBounds(190, 190, 100, 40);
 		add(jbtSure);
 		
+		//按下後建立game類別並將規則視窗關閉
 		jbtSure.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -31,6 +34,7 @@ public class Rule extends JFrame{
 		
 	}
 	
+	//main method
 	public static void main(String[] args) {
 		JFrame frame = new Rule();
 		frame.setTitle("U10316046_1032JavaProject");
@@ -44,3 +48,4 @@ public class Rule extends JFrame{
 	}
 
 }
+
